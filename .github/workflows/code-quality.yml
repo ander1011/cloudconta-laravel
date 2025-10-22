@@ -21,8 +21,10 @@ jobs:
         php-version: '8.2'
     
     - name: Check PHP syntax errors
-      run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax errors"
-      continue-on-error: false
+      run: |
+        find . -name "*.php" -not -path "./vendor/*" -print0 | while IFS= read -r -d '' file; do
+          php -l "$file" || exit 1
+        done
 
   composer-validate:
     name: Validate Composer
