@@ -1,0 +1,60 @@
+name: Code Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  php-syntax:
+    name: PHP Syntax Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+    
+    - name: Check PHP syntax errors
+      run: find . -name "*.php" -not -path "./vendor/*" -exec php -l {} \; | grep -v "No syntax errors"
+      continue-on-error: false
+
+  composer-validate:
+    name: Validate Composer
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+    
+    - name: Validate composer.json
+      run: composer validate --strict
+
+  security-check:
+    name: Security Vulnerabilities
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+    
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-interaction
+    
+    - name: Check for security vulnerabilities
+      run: composer audit
