@@ -26,11 +26,11 @@ class ModuloController extends Controller
      */
     public function gerenciarEmpresa($empresaId)
     {
-        $empresa = Empresa::with('modulos')->findOrFail($empresaId);
+        $empresa = Empresa::with('modulosAtivos')->findOrFail($empresaId);
         $todosModulos = Modulo::ativos()->ordenados()->get();
         
         // Criar array de módulos ativos da empresa
-        $modulosAtivos = $empresa->modulos->pluck('id')->toArray();
+        $modulosAtivos = $empresa->modulosAtivos->pluck('id')->toArray();
         
         return view('admin.modulos.gerenciar-empresa', compact('empresa', 'todosModulos', 'modulosAtivos'));
     }
