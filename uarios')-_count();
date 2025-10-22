@@ -1,0 +1,42 @@
+[90m= [39m[
+    {#5254
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mconversoes[39m",
+    },
+    {#5256
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mempresas[39m",
+    },
+    {#5257
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mempresas_dados_completos[39m",
+    },
+    {#5258
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mfornecedores[39m",
+    },
+    {#5259
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mlancamentos[39m",
+    },
+    {#5260
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mlogs_acesso[39m",
+    },
+    {#5261
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mplano_contas[39m",
+    },
+    {#5262
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32msessoes[39m",
+    },
+    {#5263
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32msolicitacoes_acesso[39m",
+    },
+    {#5264
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32musuario_empresa[39m",
+    },
+    {#5265
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32musuarios[39m",
+    },
+    {#5266
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mview_lancamentos_completos[39m",
+    },
+    {#5267
+      +"[1mTables_in_u227926470_contabilpro_db[22m": "[32mview_plano_hierarquico[39m",
+    },
+  ]
+
