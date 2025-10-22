@@ -26,7 +26,7 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cnpj' => 'required|string|min:14|unique:empresas,cnpj',
+            'cnpj' => 'required|string|min:14|unique:empresas,cnpj,NULL,id,usuario_id,' . auth()->id(),
             'nome' => 'required|string|max:255',
         ]);
 
@@ -92,15 +92,18 @@ class EmpresaController extends Controller
             Log::error('Erro ao cadastrar empresa: ' . $e->getMessage());
             
             // Salvar sem dados da Receita se API falhar
-            $empresa = Empresa::create([
-                'usuario_id' => auth()->id(),
-                'nome' => $request->nome,
-                'cnpj' => $cnpj,
-                'email' => $request->email,
-                'telefone' => $request->telefone,
-                'endereco' => $request->endereco,
-                'ativo' => true
-            ]);
+            
+            // Verificar se empresa já foi criada antes de tentar criar novamente
+            $empresa = Empresa::firstOrCreate(
+                ['cnpj' => $cnpj, 'usuario_id' => auth()->id()],
+                [
+                    'nome' => $request->nome,
+                    'email' => $request->email,
+                    'telefone' => $request->telefone,
+                    'endereco' => $request->endereco,
+                    'ativo' => true
+                ]
+            );
 
             return redirect()
                 ->route('workspace.empresas.index')
