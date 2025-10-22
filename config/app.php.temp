@@ -1,0 +1,4 @@
+<?php
+return array_merge(require __DIR__.'/app.php', [
+    'url' => env('APP_URL', 'https://bookish-tribble-px4prp55p76crgqj-8000.app.github.dev'),
+]);
