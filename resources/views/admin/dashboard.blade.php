@@ -44,18 +44,18 @@
             </div>
 
             <!-- Empresas -->
-            <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+            <a href="{{ route('admin.modulos.empresas') }}" class="bg-white rounded-xl shadow-lg p-6 card-hover group">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-gray-600">Empresas</p>
                         <p class="text-3xl font-bold text-gray-900">{{ $stats['empresas']['total'] }}</p>
                         <p class="text-sm text-green-600">{{ $stats['empresas']['active'] }} ativas</p>
                     </div>
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
                         <i class="fas fa-building text-green-600 text-xl"></i>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Sistema -->
             <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
