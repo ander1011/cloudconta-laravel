@@ -19,8 +19,8 @@ class DashboardController extends Controller
                     'admins' => User::whereIn('nivel_acesso', ['admin', 'administrador'])->count()
                 ],
                 'empresas' => [
-                    'total' => 0,
-                    'active' => 0
+                    'total' => \App\Models\Empresa::count(),
+                    'active' => \App\Models\Empresa::where('ativo', 1)->count()
                 ],
                 'system' => [
                     'uptime' => '5 dias',
